@@ -1,0 +1,180 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    /* Ensure vertical scrolling when needed */
+    height: 100vh;
+    /* Ensure body covers entire viewport */
+}
+
+html {
+    height: 100%;
+    /* Ensure html covers entire viewport */
+}
+
+h1 {
+    color: #973131;
+    padding-top: 20px;
+}
+
+.carousel {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    top: 0;
+    left: 0;
+
+    z-index: -1;
+    background-position: center;
+    animation: bgTransition 20s infinite alternate;
+}
+
+/* Keyframe animation to transition between background images */
+@keyframes bgTransition {
+    0% {
+        background-image: url('carousel1.jpg');
+    }
+
+    50% {
+        background-image: url('carousel2.jpg');
+    }
+
+    100% {
+        background-image: url('carousel1.jpg');
+    }
+}
+
+
+
+.app-container {
+    position: relative;
+    /*top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    margin: 100px auto 20px;
+    width: 40%;
+    height: auto;
+    background-color: #E0A75E;
+    padding-bottom: 20px;
+    border-radius: 10%;
+    z-index: 1;
+    /* Ensure the box is above the background images */
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+
+}
+
+
+
+.dropzone {
+    z-index: 5;
+    width: 80%;
+    height: 100px;
+    background-color: aliceblue;
+    border-radius: 10%;
+    border-style: dotted;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 5%;
+    text-decoration: underline;
+    color: #E0A75E;
+    margin-bottom: 20px;
+}
+
+.dropzone input[type="file"] {
+    display: none;
+}
+
+
+.file-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* background-color: antiquewhite; */
+    width: 80%;
+    overflow-y: hidden;
+
+
+}
+
+.file-name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #F5E7B2;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.file-name:hover {
+    background-color: #F9D689;
+}
+
+.thumbnail {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.file-desc {
+    margin-top: 5px;
+    width: 100%;
+    /* Make input the same width as the container */
+    box-sizing: border-box;
+    /* Ensure padding and border are included in width */
+    margin-inline: 15px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.icon {
+    background-color: red;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+.file-name {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.file-name .removing {
+    animation: fadeOut 0.5s ease-in-out;
+    animation-fill-mode: forwards;
+}
